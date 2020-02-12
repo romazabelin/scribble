@@ -130,9 +130,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'checked_table' => [
+            'required' => 'You have to choose table',
         ],
+        'file_to_upload' => [
+            'required' => 'You have to choose file(xls, xlsx)'
+        ]
     ],
 
     /*

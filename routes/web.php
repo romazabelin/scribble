@@ -15,7 +15,11 @@
 //    return view('welcome');
 //});
 
-Route::resource([
-    'clients' => 'ClientController'
-]);
+//Route::resource([
+//    'clients' => 'ClientController'
+//]);
+
+Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
+
+Route::post('/import-data-from-xls', ['uses' => 'TransferController@importDataFromXls', 'as' => 'transfer.import_data_from_xls']);
 

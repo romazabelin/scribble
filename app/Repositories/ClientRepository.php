@@ -25,4 +25,12 @@ class ClientRepository
     {
         return Client::where('name', $name)->first();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public static function getWithIdName()
+    {
+        return Client::all()->pluck('name', 'id')->toArray();
+    }
 } 

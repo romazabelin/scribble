@@ -1,6 +1,8 @@
+window.Popper = require('popper.js');
+
 global.$ = global.jQuery = require('jquery');
 
-require('./bootstrap');
+require('bootstrap');
 
 import 'datatables.net';
 //require('./datatables.net');

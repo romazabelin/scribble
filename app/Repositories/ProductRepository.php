@@ -32,4 +32,15 @@ class ProductRepository
     {
         return Product::with(['client'])->get('*');
     }
+
+    /**
+     * get single product by ID
+     *
+     * @param int $id
+     * @return mixed
+     */
+    public static function getById(int $id)
+    {
+        return Product::find($id);
+    }
 } 

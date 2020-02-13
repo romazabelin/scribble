@@ -24,6 +24,7 @@
         "datatables": "^1.10.18",
         "datatables.net": "^1.10.20",
         "datatables.net-dt": "^1.10.20",
-        "jquery": "^3.4.1"
+        "jquery": "^3.4.1",
+        "popper.js": "^1.14.3"
     }
 }

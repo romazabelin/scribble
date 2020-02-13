@@ -31,6 +31,13 @@ class TableService
                     'timestamp' => strtotime($row->date)
                 ];
             })
+            ->addColumn('actions', function($row) {
+                $str  = "<a href='" . route('product.edit', ['product' => $row->id]) . "' class='btn btn-info load-product-data mr-1'>" . Lang::get('translations.table.row.edit') . "</a>";
+                $str .= "<a href='#' class='btn btn-danger'>" . Lang::get('translations.table.row.delete') . "</a>";
+
+                return $str;
+            })
+            ->rawColumns(['actions'])
             ->make(true);
     }
 } 

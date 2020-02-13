@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ProductRepository;
+use App\Services\ProductService;
 use App\Services\TableService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class ProductController extends Controller
 {
@@ -57,7 +60,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json([
+            'product'   => ProductRepository::getById($id),
+            'updateUrl' => route('product.update', ['product' => $id])
+        ]);
     }
 
     /**
@@ -69,7 +75,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input       = $request->input();
+        $input['id'] = $id;
+        $data        = ProductService::update($id, $input);
+
+        return response()->json($data);
     }
 
     /**

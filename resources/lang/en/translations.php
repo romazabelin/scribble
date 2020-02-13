@@ -14,10 +14,23 @@ return [
             'client'  => 'Client',
             'product' => 'Product',
             'total'   => 'Total',
-            'date'    => 'Date'
+            'date'    => 'Date',
+            'actions' => 'Actions'
         ],
         'row' => [
-            'dollar' => '$'
+            'dollar' => '$',
+            'edit'   => 'Edit',
+            'delete' => 'Delete'
         ]
+    ],
+
+    'edit_product' => [
+        'modal_title' => 'Edit product',
+        'modal_close' => 'Close',
+        'modal_save'  => 'Save',
+        'name'        => 'Name',
+        'client'      => 'Client',
+        'total'       => 'Total',
+        'success'     => 'Saved! All data on the page will automatically refresh'
     ]
 ];

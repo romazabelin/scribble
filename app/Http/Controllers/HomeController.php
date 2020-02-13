@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ClientRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,6 +12,8 @@ class HomeController extends Controller
      */
     public static function index()
     {
-        return view('index.index');
+        $clients = ClientRepository::getWithIdName();
+
+        return view('index.index', compact('clients'));
     }
 }

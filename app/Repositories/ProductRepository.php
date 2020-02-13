@@ -22,4 +22,14 @@ class ProductRepository
             'date'      => $date
         ]);
     }
+
+    /**
+     * get all products
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public static function getAll()
+    {
+        return Product::with(['client'])->get('*');
+    }
 } 

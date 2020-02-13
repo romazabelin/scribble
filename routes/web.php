@@ -11,13 +11,14 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
-//Route::resource([
-//    'clients' => 'ClientController'
-//]);
+Route::resource('clients', 'ClientController')->names([
+    'index' => 'client.list'
+]);
+
+Route::resource('products', 'ProductController')->names([
+    'index' => 'product.list'
+]);
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
 

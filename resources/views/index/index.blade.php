@@ -25,3 +25,41 @@
 {{ Form::submit(trans('translations.import_submit_btn'), ['class' => 'btn btn-primary', 'type'=>'submit']) }}
 
 {{ Form::close() }}
+
+
+<table class="table table-bordered" id="products-table">
+    <thead>
+    <tr>
+        <th>{{ trans('translations.table.heading.client') }}</th>
+        <th>{{ trans('translations.table.heading.product') }}</th>
+        <th>{{ trans('translations.table.heading.total') }}</th>
+        <th>{{ trans('translations.table.heading.date') }}</th>
+    </tr>
+    </thead>
+</table>
+
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<script src="{{ asset('js/app.js') }}"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#products-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('product.list') }}",
+            columns: [
+                { data: 'client.name', name: 'client_id' },
+                { data: 'name', name: 'name' },
+                { data: 'total', name: 'total', orderable: false },
+                { data: 'date_formatted', name: 'date',
+                    render: {
+                        _: 'display',
+                        sort: 'timestamp'
+                    }
+                }
+            ],
+            searching: false
+        });
+    })
+</script>

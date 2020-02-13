@@ -7,5 +7,17 @@ return [
     'check_products_table' => 'Products',
 
     'success_import'      => 'Import success!',
-    'unsuccessful_import' => 'Import unsuccessful!'
+    'unsuccessful_import' => 'Import unsuccessful!',
+
+    'table' => [
+        'heading' => [
+            'client'  => 'Client',
+            'product' => 'Product',
+            'total'   => 'Total',
+            'date'    => 'Date'
+        ],
+        'row' => [
+            'dollar' => '$'
+        ]
+    ]
 ];

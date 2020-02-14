@@ -55,4 +55,16 @@ class ProductService
 
         return compact('isSaved', 'msg');
     }
+
+    /**
+     * get data for chart
+     *
+     * @return array
+     */
+    public static function getChartData()
+    {
+        $revenueTotalData = ProductRepository::getTotalByDate();
+
+        return compact('revenueTotalData');
+    }
 } 

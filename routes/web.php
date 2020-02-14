@@ -27,3 +27,5 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);
 
 Route::post('/import-data-from-xls', ['uses' => 'TransferController@importDataFromXls', 'as' => 'transfer.import_data_from_xls']);
 
+Route::get('/products-chart', ['uses' => 'ProductController@getChartData', 'as' => 'product.get_chart_data']);
+

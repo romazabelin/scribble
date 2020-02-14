@@ -98,12 +98,64 @@
     </div>
 </div>
 
+<canvas id="canvas"></canvas>
+
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 <script src="{{ asset('js/app.js') }}"></script>
 
 <script>
     $(document).ready(function() {
+        /*------------------chart start-------------------*/
+        function initChart(labels, dataset) {
+            var config = {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'My First dataset',
+                        data: dataset,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                }
+            };
+
+            var ctx = document.getElementById("canvas").getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            window.myLine = new Chart(ctx, config);
+        }
+
+
+        function loadChartData() {
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('product.get_chart_data') }}",
+                success: function(response) {
+                    var revenueTotalData = response.revenueTotalData;
+                    var labels  = [];
+                    var dataset = [];
+
+                    for (var key in revenueTotalData) {
+                        labels.push(key);
+                        dataset.push(revenueTotalData[key]);
+                    }
+
+                    initChart(labels, dataset)
+                }
+            })
+        }
+
+        loadChartData();
+        /*------------------chart end-------------------*/
+
+        function reloadData() {
+            listing.ajax.reload();
+            loadChartData();
+        }
+
         var listing = $('#products-table').DataTable({
             processing: true,
             serverSide: true,
@@ -146,7 +198,7 @@
 
                     if (response.isSaved) {
                         alert(response.msg);
-                        listing.ajax.reload();
+                        reloadData();
                     } else
                         alert(response.msg);
                 }
@@ -168,7 +220,7 @@
 
                     if (response.isSaved) {
                         alert(response.msg);
-                        listing.ajax.reload();
+                        reloadData();
                     } else
                         alert(response.msg);
                 }

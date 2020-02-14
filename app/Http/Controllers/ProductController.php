@@ -92,4 +92,14 @@ class ProductController extends Controller
     {
         return response()->json(ProductService::destroy($id));
     }
+
+    /**
+     * get data for chart
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getChartData()
+    {
+        return response()->json(ProductService::getChartData());
+    }
 }

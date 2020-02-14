@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductRepository
 {
@@ -50,5 +51,19 @@ class ProductRepository
     public static function destroy(int $id)
     {
         Product::destroy($id);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getTotalByDate()
+    {
+        //return Product::select(DB::raw('sum(products.total) as revenue'), DB::raw('DATE_FORMAT(products.date, "%Y-%m-%d") as date'))->groupBy('products.date')->get()->toArray();
+        return Product::selectRaw('sum(products.total) as revenue, DATE_FORMAT(products.date, "%Y-%m-%d") as date')
+            ->groupBy('products.date')
+            ->orderBy('products.date')
+            ->get()
+            ->pluck('revenue', 'date')
+            ->toArray();
     }
 } 

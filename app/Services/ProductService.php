@@ -40,4 +40,19 @@ class ProductService
 
         return compact('isSaved', 'msg');
     }
+
+    /**
+     * delete product from DB
+     *
+     * @param int $id
+     */
+    public static function destroy(int $id)
+    {
+        ProductRepository::destroy($id);
+
+        $isSaved   = true;
+        $msg       = Lang::get('translations.destroy_product.success');
+
+        return compact('isSaved', 'msg');
+    }
 } 

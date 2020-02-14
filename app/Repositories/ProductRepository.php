@@ -43,4 +43,12 @@ class ProductRepository
     {
         return Product::find($id);
     }
+
+    /**
+     * @param int $id
+     */
+    public static function destroy(int $id)
+    {
+        Product::destroy($id);
+    }
 } 

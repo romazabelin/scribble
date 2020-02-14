@@ -17,9 +17,10 @@ Route::resource('clients', 'ClientController')->names([
 ]);
 
 Route::resource('products', 'ProductController')->names([
-    'index'  => 'product.list',
-    'edit'   => 'product.edit',
-    'update' => 'product.update'
+    'index'   => 'product.list',
+    'edit'    => 'product.edit',
+    'update'  => 'product.update',
+    'destroy' => 'product.destroy'
 ]);
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home.index']);

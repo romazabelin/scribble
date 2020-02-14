@@ -32,5 +32,13 @@ return [
         'client'      => 'Client',
         'total'       => 'Total',
         'success'     => 'Saved! All data on the page will automatically refresh'
+    ],
+
+    'destroy_product' => [
+        'modal_title'  => 'Delete product',
+        'modal_close'  => 'Close',
+        'modal_save'   => 'Delete',
+        'confirmation' => 'Are you sure?',
+        'success'      => 'Deleted! All data on the page will automatically refresh'
     ]
 ];

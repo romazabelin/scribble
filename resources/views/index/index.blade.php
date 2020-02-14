@@ -39,6 +39,26 @@
     </thead>
 </table>
 
+<div id="modal-product-destroy" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ trans('translations.destroy_product.modal_title') }}</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ trans('translations.destroy_product.confirmation') }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-destroy-product">{{ trans('translations.destroy_product.modal_save') }}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('translations.destroy_product.modal_close') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="modal-product-edit" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -103,6 +123,36 @@
             searching: false
         });
 
+        $('body').on('click', '.destroy-product', function() {
+            var url = $(this).attr('href');
+
+            $('#modal-product-destroy').modal('show');
+            $('#btn-destroy-product').attr('data-url', url);
+
+            return false;
+        })
+
+        $('body').on('click', '#btn-destroy-product', function() {
+            var url = $(this).attr('data-url');
+
+            $.ajax({
+                type: 'DELETE',
+                url: url,
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    $('.modal').modal('hide');
+
+                    if (response.isSaved) {
+                        alert(response.msg);
+                        listing.ajax.reload();
+                    } else
+                        alert(response.msg);
+                }
+            })
+        })
+
         $('body').on('click', '#btn-update-product', function() {
             $.ajax({
                 type: 'PUT',
@@ -114,6 +164,8 @@
                     _token: "{{ csrf_token() }}"
                 },
                 success: function(response) {
+                    $('.modal').modal('hide');
+
                     if (response.isSaved) {
                         alert(response.msg);
                         listing.ajax.reload();

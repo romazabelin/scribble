@@ -131,9 +131,10 @@ class ProductRepository
     public static function executeQueryForExport($query)
     {
         //return $query->with(['client'])->get();
-        //['name', 'total', 'date']
         //with(['client'])
-        return $query->get(['name', 'total', 'date'])->toArray();
+        return $query->leftJoin('clients', 'clients.id', '=', 'products.client_id')
+            ->selectRaw('clients.name as client_name, products.name, products.total, DATE_FORMAT(products.date, "%Y-%m-%d") as date')
+            ->get()->toArray();
     }
 
     /**

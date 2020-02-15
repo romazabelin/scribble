@@ -16,6 +16,7 @@ return [
         'msg_nothing_to_export' => 'Sorry! There are no data to export!',
 
         'file_heading' => [
+            'client' => 'Client',
             'product' => 'Product',
             'total'   => 'Total',
             'date'    => 'Date'

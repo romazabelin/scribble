@@ -59,6 +59,7 @@ class TransferService
         } else {
             //if we have data then create xlsx file and send in email
             $headData    = [
+                Lang::get('translations.export.file_heading.client'),
                 Lang::get('translations.export.file_heading.product'),
                 Lang::get('translations.export.file_heading.total'),
                 Lang::get('translations.export.file_heading.date')

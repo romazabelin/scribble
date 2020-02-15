@@ -23,4 +23,18 @@ class TransferController extends Controller
 
         return back()->with('status', $msg);
     }
+
+    /**
+     * Export data to xlxs and send on email
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function exportDataToXls(Request $request)
+    {
+        $input = $request->input();
+
+        //todo:: revert ??
+        return response()->json(TransferService::exportData($input['filter_key'], $input['filter_val'] ?? ''));
+    }
 }

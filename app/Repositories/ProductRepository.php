@@ -123,6 +123,19 @@ class ProductRepository
         return $query->with(['client'])->get('*');
     }
 
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public static function executeQueryForExport($query)
+    {
+        //return $query->with(['client'])->get();
+        //['name', 'total', 'date']
+        //with(['client'])
+        return $query->get(['name', 'total', 'date'])->toArray();
+    }
+
     /**
      * get single product by ID
      *

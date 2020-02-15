@@ -8,6 +8,19 @@ return [
 
     'success_import'      => 'Import success!',
     'unsuccessful_import' => 'Import unsuccessful!',
+    'email_report'        => 'Email this report',
+    'filter_btn'          => 'Filter',
+
+    'export' => [
+        'msg_success'           => 'Success! Check your email!',
+        'msg_nothing_to_export' => 'Sorry! There are no data to export!',
+
+        'file_heading' => [
+            'product' => 'Product',
+            'total'   => 'Total',
+            'date'    => 'Date'
+        ]
+    ],
 
     'table' => [
         'heading' => [

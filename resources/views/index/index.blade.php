@@ -32,10 +32,13 @@
     <div class="card-body">
         {{ Form::text('', '', ['class' => 'form-control', 'id' => 'filter-val']) }}
         {{ Form::select('', $filterOptions, '', ['class' => 'form-control', 'id' => 'filter-key']) }}
-        {{ Form::button('Bla', ['class' => 'btn btn-info', 'id' => 'btn-apply-filter']) }}
+        {{ Form::button(trans('translations.filter_btn'), ['class' => 'btn btn-info', 'id' => 'btn-apply-filter']) }}
     </div>
 </div>
 
+<div>
+    {{ Html::link(route('transfer.export_data_to_xls'), trans('translations.email_report'), ['id' => 'link-email-report']) }}
+</div>
 
 <table class="table table-bordered" id="products-table">
     <thead>
@@ -149,8 +152,8 @@
                 async: false,
                 url: "{{ route('product.get_chart_data') }}",
                 data: {
-                    "filter_val": $("#filter-val").val(),
-                    "filter_key": $("#filter-key option:selected").val()
+                    filter_val: $("#filter-val").val(),
+                    filter_key: $("#filter-key option:selected").val()
                 },
                 success: function(response) {
                     var revenueTotalData = response.revenueTotalData;
@@ -181,8 +184,8 @@
                     type: 'GET',
                     url: "{{ route('product.list') }}",
                     data: {
-                        "filter_val": $("#filter-val").val(),
-                        "filter_key": $("#filter-key option:selected").val()
+                        filter_val: $("#filter-val").val(),
+                        filter_key: $("#filter-key option:selected").val()
                     }
                 },
                 //ajax: "{{ route('product.list') }}",
@@ -210,6 +213,25 @@
         }
 
         reloadData();
+
+        $('body').on('click', '#link-email-report', function() {
+            var that = $(this);
+
+            $.ajax({
+                url: that.attr('href'),
+                type: 'POST',
+                data: {
+                    filter_val: $("#filter-val").val(),
+                    filter_key: $("#filter-key option:selected").val(),
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    alert(response.msg);
+                }
+            })
+
+            return false;
+        })
 
         $('body').on('click', '#btn-apply-filter', function() {
             reloadData();

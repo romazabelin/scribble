@@ -40,5 +40,13 @@ return [
         'modal_save'   => 'Delete',
         'confirmation' => 'Are you sure?',
         'success'      => 'Deleted! All data on the page will automatically refresh'
+    ],
+
+    'filter' => [
+        'all'          => 'All',
+        'client_name'  => 'Client',
+        'product_name' => 'Product',
+        'total'        => 'Total',
+        'date'         => 'Date'
     ]
 ];

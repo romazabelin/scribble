@@ -29,9 +29,98 @@ class ProductRepository
      *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public static function getAll()
+    public static function getAllProducts()
     {
         return Product::with(['client'])->get('*');
+    }
+
+    /**
+     * get query for all products
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function getQuery()
+    {
+        return Product::query();
+    }
+
+    /**
+     * add statement belongsTo client
+     *
+     * @param $query
+     * @return mixed
+     */
+    public static function addWithClients($query)
+    {
+        return $query->with(['client']);
+    }
+
+    /**
+     * @param string $name
+     * @param $query
+     * @return mixed
+     */
+    public static function addWithClientsStatement(string $name, $query)
+    {
+        return $query->whereHas('client', function($q) use ($name) {
+            $q->where('name', 'like', '%' . $name . '%');
+        });
+    }
+
+    /**
+     * @param string $value
+     * @param string $date
+     * @param $query
+     * @return mixed
+     */
+    public static function addAllStatements(string $value, string $date, $query)
+    {
+        return $query->where(function($q) use ($value, $date) {
+            $q->orWhere('total', $value);
+            $q->orWhere('date', 'like', '%' . $date . '%');
+            $q->orWhere('name', 'like', '%' . $value . '%');
+            $q->orWhereHas('client', function($q) use ($value) {
+                $q->where('name', 'like', '%' . $value . '%');
+            });
+        });
+    }
+
+    /**
+     * @param int $total
+     * @param $query
+     */
+    public static function addTotalStatement(int $total, $query)
+    {
+        return $query->where;
+    }
+
+    /**
+     * @param string $date
+     * @param $query
+     * @return mixed
+     */
+    public static function addDateStatement(string $date, $query)
+    {
+        return $query->where('date', 'like', '%' . $date . '%');
+    }
+
+    /**
+     * @param string $name
+     * @param $query
+     * @return mixed
+     */
+    public static function addNameStatement(string $name, $query)
+    {
+        return $query->where('name', 'like', '%' . $name . '%');
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public static function execQuery($query)
+    {
+        return $query->with(['client'])->get('*');
     }
 
     /**

@@ -15,9 +15,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return TableService::getProductsDataTable();
+        //todo: revert ??
+        return TableService::getProductsDataTable($request->get('filter_key'), $request->get('filter_val') ?? '');
     }
 
     /**

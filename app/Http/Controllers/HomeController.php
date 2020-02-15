@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\ClientRepository;
+
+use App\Services\ClientService;
+use App\Services\FilterService;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,8 +14,9 @@ class HomeController extends Controller
      */
     public static function index()
     {
-        $clients = ClientRepository::getWithIdName();
+        $clients       = ClientService::getWithIdName();
+        $filterOptions = FilterService::getFilterList();
 
-        return view('index.index', compact('clients'));
+        return view('index.index', compact('clients', 'filterOptions'));
     }
 }

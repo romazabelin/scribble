@@ -17,11 +17,18 @@ class TableService
     /**
      * Get products list for dataable
      *
+     * @internal param int $filterKey
+     * @internal param string $filterValue
      * @return json
      */
-    public static function getProductsDataTable()
+    public static function getProductsDataTable(int $filterKey, string $filterValue)
     {
-        return DataTables::of(ProductRepository::getAll())
+        //TODO: add validation - add ? to params
+        $filterService = new FilterService();
+        $query         = ProductRepository::getQuery();
+        $query         = $filterService->addFilterStatements($filterKey, $filterValue, $query);
+
+        return DataTables::of(ProductRepository::execQuery($query))
             ->editColumn('total', function($row) {
                 return Lang::get('translations.table.row.dollar') . $row->total;
             })

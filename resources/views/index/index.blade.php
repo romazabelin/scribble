@@ -1,30 +1,40 @@
-{{ Form::open(['url' => route('transfer.import_data_from_xls'), 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
+<div>
+    {{ Form::open(['url' => route('transfer.import_data_from_xls'), 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
 
-{{ Form::file('file_to_upload') }}
+    {{ Form::file('file_to_upload') }}
 
-{{ Form::radio('checked_table', 1) }} {{ trans('translations.check_clients_table') }}
+    {{ Form::radio('checked_table', 1) }} {{ trans('translations.check_clients_table') }}
 
-{{ Form::radio('checked_table', 2) }} {{ trans('translations.check_products_table') }}
+    {{ Form::radio('checked_table', 2) }} {{ trans('translations.check_products_table') }}
 
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+
+    {{ Form::submit(trans('translations.import_submit_btn'), ['class' => 'btn btn-primary', 'type'=>'submit']) }}
+
+    {{ Form::close() }}
 </div>
-@endif
 
-@if (session('status'))
-<div class="alert alert-success">
-    {{ session('status') }}
+<div class="card">
+    <div class="card-body">
+        {{ Form::text('', '', ['class' => 'form-control', 'id' => 'filter-val']) }}
+        {{ Form::select('', $filterOptions, '', ['class' => 'form-control', 'id' => 'filter-key']) }}
+        {{ Form::button('Bla', ['class' => 'btn btn-info', 'id' => 'btn-apply-filter']) }}
+    </div>
 </div>
-@endif
-
-{{ Form::submit(trans('translations.import_submit_btn'), ['class' => 'btn btn-primary', 'type'=>'submit']) }}
-
-{{ Form::close() }}
 
 
 <table class="table table-bordered" id="products-table">
@@ -132,6 +142,7 @@
         function loadChartData() {
             $.ajax({
                 type: 'GET',
+                async: false,
                 url: "{{ route('product.get_chart_data') }}",
                 success: function(response) {
                     var revenueTotalData = response.revenueTotalData;
@@ -148,32 +159,52 @@
             })
         }
 
-        loadChartData();
+        //loadChartData();
         /*------------------chart end-------------------*/
 
         function reloadData() {
-            listing.ajax.reload();
+            if ( $.fn.DataTable.isDataTable('#products-table') ) {
+                $('#products-table').DataTable().destroy();
+            }
+
+            var listing = $('#products-table').DataTable({
+                processing: true,
+                serverSide: true,
+                "ajax": {
+                    async: false,
+                    type: 'GET',
+                    url: "{{ route('product.list') }}",
+                    data: {
+                        "filter_val": $("#filter-val").val(),
+                        "filter_key": $("#filter-key option:selected").val()
+                    }
+                },
+                //ajax: "{{ route('product.list') }}",
+                columns: [
+                    { data: 'client.name', name: 'client_id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'total', name: 'total', orderable: false },
+                    { data: 'date_formatted', name: 'date',
+                        render: {
+                            _: 'display',
+                            sort: 'timestamp'
+                        }
+                    },
+                    { data: 'actions', name: 'actions', orderable: false }
+                ],
+                searching: false
+            });
+
+            //listing.ajax.reload();
             loadChartData();
         }
 
-        var listing = $('#products-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('product.list') }}",
-            columns: [
-                { data: 'client.name', name: 'client_id' },
-                { data: 'name', name: 'name' },
-                { data: 'total', name: 'total', orderable: false },
-                { data: 'date_formatted', name: 'date',
-                    render: {
-                        _: 'display',
-                        sort: 'timestamp'
-                    }
-                },
-                { data: 'actions', name: 'actions', orderable: false }
-            ],
-            searching: false
+        reloadData();
+
+        $('body').on('click', '#btn-apply-filter', function() {
+            reloadData();
         });
+
 
         $('body').on('click', '.destroy-product', function() {
             var url = $(this).attr('href');

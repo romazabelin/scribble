@@ -61,6 +61,7 @@ return [
         'client_name'  => 'Client',
         'product_name' => 'Product',
         'total'        => 'Total',
-        'date'         => 'Date'
+        'date'         => 'Date',
+        'select'       => 'Select'
     ]
 ];

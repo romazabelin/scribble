@@ -5,6 +5,7 @@ namespace App\Services;
 
 use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Validator;
 
 class FilterService
 {
@@ -16,6 +17,7 @@ class FilterService
     public static function getFilterList()
     {
         return [
+            0                    => Lang::get('translations.filter.select'),
             FILTER_ALL_FIELDS    => Lang::get('translations.filter.all'),
             FILTER_CLIENT_NAME   => Lang::get('translations.filter.client_name'),
             FILTER_PRODUCT_NAME  => Lang::get('translations.filter.product_name'),
@@ -33,8 +35,19 @@ class FilterService
      */
     public function addFilterStatements(int $key, string $value, $query)
     {
-        //TODO: add validation - add ? to params, date in input - mask
-        if (!$value)
+        //TODO: date in input - mask
+        if (!$key)
+            return $query;
+
+        $validator = Validator::make([
+            'key'   => $key,
+            'value' => $value
+        ], [
+            'key'   => 'required|integer|min:1',
+            'value' => 'required|string'
+        ]);
+
+        if ($validator->fails())
             return $query;
 
         switch($key) {

@@ -118,6 +118,10 @@
     $(document).ready(function() {
         /*------------------chart start-------------------*/
         function initChart(labels, dataset) {
+            if (window.myLine != undefined) {
+                window.myLine.destroy();
+            }
+
             var config = {
                 type: 'line',
                 data: {
@@ -144,6 +148,10 @@
                 type: 'GET',
                 async: false,
                 url: "{{ route('product.get_chart_data') }}",
+                data: {
+                    "filter_val": $("#filter-val").val(),
+                    "filter_key": $("#filter-key option:selected").val()
+                },
                 success: function(response) {
                     var revenueTotalData = response.revenueTotalData;
                     var labels  = [];
@@ -158,11 +166,9 @@
                 }
             })
         }
-
-        //loadChartData();
         /*------------------chart end-------------------*/
 
-        function reloadData() {
+        function loadListingData() {
             if ( $.fn.DataTable.isDataTable('#products-table') ) {
                 $('#products-table').DataTable().destroy();
             }
@@ -196,6 +202,10 @@
             });
 
             //listing.ajax.reload();
+        }
+
+        function reloadData() {
+            loadListingData();
             loadChartData();
         }
 

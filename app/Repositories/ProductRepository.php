@@ -91,7 +91,7 @@ class ProductRepository
      */
     public static function addTotalStatement(int $total, $query)
     {
-        return $query->where;
+        return $query->where('total', $total);
     }
 
     /**
@@ -140,6 +140,29 @@ class ProductRepository
     public static function destroy(int $id)
     {
         Product::destroy($id);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function getTotalByDateQuery()
+    {
+        //return Product::select(DB::raw('sum(products.total) as total'), DB::raw('DATE_FORMAT(products.date, "%Y-%m-%d") as date'))->groupBy('products.date')->get()->toArray();
+        return Product::selectRaw('sum(products.total) as total, DATE_FORMAT(products.date, "%Y-%m-%d") as date')
+            ->groupBy('products.date')
+            ->orderBy('products.date');
+    }
+
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public static function executeTotalByDateQuery($query)
+    {
+        return $query->get()
+            ->pluck('total', 'date')
+            ->toArray();
     }
 
     /**

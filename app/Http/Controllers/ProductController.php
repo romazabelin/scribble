@@ -99,8 +99,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getChartData()
+    public function getChartData(Request $request)
     {
-        return response()->json(ProductService::getChartData());
+        //todo:: revert ?
+        return response()->json(ProductService::getChartData($request->get('filter_key'), $request->get('filter_val') ?? ''));
     }
 }

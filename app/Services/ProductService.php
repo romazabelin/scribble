@@ -61,9 +61,12 @@ class ProductService
      *
      * @return array
      */
-    public static function getChartData()
+    public static function getChartData(int $filterKey, string $filterValue)
     {
-        $revenueTotalData = ProductRepository::getTotalByDate();
+        $filterService    = new FilterService();
+        $query            = ProductRepository::getTotalByDateQuery();
+        $query            = $filterService->addFilterStatements($filterKey, $filterValue, $query);
+        $revenueTotalData = ProductRepository::executeTotalByDateQuery($query);
 
         return compact('revenueTotalData');
     }

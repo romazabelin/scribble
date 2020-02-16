@@ -38,6 +38,10 @@ return [
         ]
     ],
 
+    'chart' => [
+        'label' => 'Total revenue by date'
+    ],
+
     'edit_product' => [
         'modal_title' => 'Edit product',
         'modal_close' => 'Close',

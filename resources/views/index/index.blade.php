@@ -18,7 +18,7 @@
             </div>
         @endif
     </div>
-    <div class="card">
+    <div class="card mb-5 mt-5">
         <div class="card-body">
             {{ Form::open(['url' => route('transfer.import_data_from_xls'), 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
             <div class="row">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card mb-5">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
@@ -54,11 +54,11 @@
         </div>
     </div>
 
-    <div>
-        {{ Html::link(route('transfer.export_data_to_xls'), trans('translations.email_report'), ['id' => 'link-email-report']) }}
+    <div class="mb-5">
+        {{ Html::link(route('transfer.export_data_to_xls'), trans('translations.email_report'), ['class' => 'btn  btn-info', 'id' => 'link-email-report']) }}
     </div>
 
-    <div>
+    <div class="mb-5">
         <table class="table table-bordered" id="products-table">
             <thead>
             <tr>

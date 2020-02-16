@@ -11,7 +11,7 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: 'My First dataset',
+                        label: "{{ trans('translations.chart.label') }}",
                         data: dataset,
                         fill: false,
                     }]

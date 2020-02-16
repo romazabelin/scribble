@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="205b28e7-d796-42a7-ad17-0e6891af3833" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/web-scribble.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web-scribble.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/translations.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/translations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/js/scripts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/js/scripts.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -167,6 +171,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581858879369</updated>
       <workItem from="1581858925364" duration="556000" />
+      <workItem from="1581876371050" duration="1004000" />
     </task>
     <servers />
   </component>
@@ -179,13 +184,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1581877387446">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1581877387446" />
     <state x="512" y="99" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1581858747025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="512" y="99" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1366.728@0.0.1366.728" timestamp="1581858747025" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581863676319">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581877033482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581863676319" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581877033482" />
   </component>
 </project>

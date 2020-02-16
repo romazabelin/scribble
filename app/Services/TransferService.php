@@ -46,7 +46,7 @@ class TransferService
      * @param string $filterVal
      * @return array
      */
-    public static function exportData(int $filterKey, string $filterVal)
+    public static function exportData(?int $filterKey, ?string $filterVal)
     {
         $filterService = new FilterService();
         $query         = ProductRepository::getQuery();
@@ -74,4 +74,4 @@ class TransferService
 
         return compact('msg');
     }
-} 
+}

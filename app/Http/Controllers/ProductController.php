@@ -13,12 +13,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return json
      */
     public function index(Request $request)
     {
-        //todo: revert ??
-        return TableService::getProductsDataTable($request->get('filter_key'), $request->get('filter_val') ?? '');
+        return TableService::getProductsDataTable($request->get('filter_key'), $request->get('filter_val'));
     }
 
     /**
@@ -101,7 +100,6 @@ class ProductController extends Controller
      */
     public function getChartData(Request $request)
     {
-        //todo:: revert ?
-        return response()->json(ProductService::getChartData($request->get('filter_key'), $request->get('filter_val') ?? ''));
+        return response()->json(ProductService::getChartData($request->get('filter_key'),  $request->get('filter_val')));
     }
 }

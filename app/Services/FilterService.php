@@ -33,9 +33,8 @@ class FilterService
      * @param string $value
      * @param $query
      */
-    public function addFilterStatements(int $key, string $value, $query)
+    public function addFilterStatements(?int $key, ?string $value, $query)
     {
-        //TODO: date in input - mask
         if (!$key)
             return $query;
 
@@ -72,4 +71,4 @@ class FilterService
 
         return $query;
     }
-} 
+}

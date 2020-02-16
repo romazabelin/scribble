@@ -17,13 +17,12 @@ class TableService
     /**
      * Get products list for dataable
      *
-     * @internal param int $filterKey
-     * @internal param string $filterValue
+     * @param int|null $filterKey
+     * @param string|null $filterValue
      * @return json
      */
-    public static function getProductsDataTable(int $filterKey, string $filterValue)
+    public static function getProductsDataTable(?int $filterKey, ?string $filterValue)
     {
-        //TODO: add validation - add ? to params
         $filterService = new FilterService();
         $query         = ProductRepository::getQuery();
         $query         = $filterService->addFilterStatements($filterKey, $filterValue, $query);
@@ -47,4 +46,4 @@ class TableService
             ->rawColumns(['actions'])
             ->make(true);
     }
-} 
+}

@@ -34,7 +34,6 @@ class TransferController extends Controller
     {
         $input = $request->input();
 
-        //todo:: revert ??
-        return response()->json(TransferService::exportData($input['filter_key'], $input['filter_val'] ?? ''));
+        return response()->json(TransferService::exportData($input['filter_key'], $input['filter_val']));
     }
 }

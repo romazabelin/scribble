@@ -14,7 +14,7 @@ class MailService
             //$m->from('Roma');
             $emails = ['romazabelin1991@gmail.com', 'kirillzabelin15@gmail.com'];
 
-            $m->to()
+            $m->to($emails)
                 ->subject(Lang::get('translations.mail.report.hello'));
         });
     }

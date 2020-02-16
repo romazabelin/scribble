@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="205b28e7-d796-42a7-ad17-0e6891af3833" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Services/MailService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -168,7 +167,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581858879369</updated>
       <workItem from="1581858925364" duration="556000" />
-      <workItem from="1581876371050" duration="1948000" />
+      <workItem from="1581876371050" duration="2497000" />
     </task>
     <servers />
   </component>

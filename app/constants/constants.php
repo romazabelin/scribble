@@ -1,0 +1,7 @@
+<?php
+
+const FILTER_ALL_FIELDS    = 1;
+const FILTER_CLIENT_NAME   = 2;
+const FILTER_PRODUCT_NAME  = 3;
+const FILTER_PRODUCT_TOTAL = 4;
+const FILTER_PRODUCT_DATE  = 5;

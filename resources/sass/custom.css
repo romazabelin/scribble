@@ -1,0 +1,23 @@
+table#products-table {
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+table#products-table  th, table#products-table  td {
+    /*border-top: 1px solid #ddd;*/
+    /*border-bottom: 1px solid #ddd;*/
+    /*border-color: #46637f;*/
+    border: none;
+}
+
+table#products-table tbody tr, thead tr {
+    background-color: #34495e;
+}
+
+table#products-table thead tr {
+    color: #dd5;
+}
+
+table#products-table tbody tr {
+    color: #fff;
+}

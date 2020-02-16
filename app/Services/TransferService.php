@@ -69,6 +69,9 @@ class TransferService
             ob_end_clean();
             Excel::store(new SkeletonExport($data, $headData), $file);
 
+            //send report to users
+            MailService::sendReport();
+
             $msg = Lang::get('translations.export.msg_success');
         }
 

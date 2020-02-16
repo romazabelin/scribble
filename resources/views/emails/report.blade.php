@@ -1,0 +1,1 @@
+{{ trans('translations.report.hello') }}

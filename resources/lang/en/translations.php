@@ -67,5 +67,12 @@ return [
         'total'        => 'Total',
         'date'         => 'Date',
         'select'       => 'Select'
+    ],
+
+    'mail' => [
+        'report' => [
+            'subject' => 'Report',
+            'hello' => 'Hi. This is report from my test task'
+        ]
     ]
 ];

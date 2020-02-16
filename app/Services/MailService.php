@@ -8,14 +8,19 @@ use Illuminate\Support\Facades\Mail;
 
 class MailService
 {
-    public static function sendReport()
+    /**
+     * send report to users
+     *
+     * @param array $users
+     * @param string $pathToFile
+     */
+    public static function sendReport(array $emails, string $pathToFile)
     {
-        Mail::send('emails.report', [], function ($m) {
+        Mail::send('emails.report', [], function ($m) use ($pathToFile, $emails) {
             //$m->from('Roma');
-            $emails = ['romazabelin1991@gmail.com', 'kirillzabelin15@gmail.com'];
-
             $m->to($emails)
-                ->subject(Lang::get('translations.mail.report.hello'));
+                ->subject(Lang::get('translations.mail.report.subject'))
+                ->attachFromStorage($pathToFile);
         });
     }
 }

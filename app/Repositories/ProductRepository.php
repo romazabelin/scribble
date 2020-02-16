@@ -86,10 +86,10 @@ class ProductRepository
     }
 
     /**
-     * @param int $total
+     * @param string $total
      * @param $query
      */
-    public static function addTotalStatement(int $total, $query)
+    public static function addTotalStatement(string $total, $query)
     {
         return $query->where('total', $total);
     }
@@ -192,4 +192,4 @@ class ProductRepository
             ->pluck('revenue', 'date')
             ->toArray();
     }
-} 
+}

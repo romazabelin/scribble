@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0e87228-c427-4fe0-a1da-848526129f29" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/delete_product.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/modals/product_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/js/scripts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +27,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="web-scribble" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -158,6 +169,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp64_3.1.9\www\web-scribble\resources\views\modals" />
       <recent name="D:\wamp64_3.1.9\www\web-scribble\app\constants" />
     </key>
   </component>
@@ -185,7 +197,8 @@
       <updated>1581431190423</updated>
       <workItem from="1581795181535" duration="632000" />
       <workItem from="1581838122928" duration="3891000" />
-      <workItem from="1581842811048" duration="804000" />
+      <workItem from="1581842811048" duration="3108000" />
+      <workItem from="1581850551862" duration="2652000" />
     </task>
     <servers />
   </component>
@@ -198,14 +211,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1581843662518">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1581854296289">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1581843662518" />
-    <state x="510" y="352" key="NewPhpFileDialog" timestamp="1581843405186">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1581854296289" />
+    <state x="510" y="352" key="NewPhpFileDialog" timestamp="1581851609286">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="510" y="352" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1581843405186" />
+    <state x="510" y="352" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1581851609286" />
+    <state x="508" y="76" key="RollbackChangesDialog" timestamp="1581851554416">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="508" y="76" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1581851554416" />
     <state x="186" y="0" key="SettingsEditor" timestamp="1581795520644">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -214,13 +231,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="190" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581795185855" />
-    <state x="390" y="0" width="585" height="728" key="find.popup" timestamp="1581795620132">
+    <state x="390" y="0" width="585" height="728" key="find.popup" timestamp="1581843743604">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1581795620132" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581843514145">
+    <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1581843743604" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581851783090">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581843514145" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581851783090" />
   </component>
 </project>

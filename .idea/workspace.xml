@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0e87228-c427-4fe0-a1da-848526129f29" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/web-scribble.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web-scribble.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modals/delete_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/modals/product_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransferController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransferController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/FilterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/FilterService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/ProductService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/ProductService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/TableService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/TableService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/TransferService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/TransferService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +144,12 @@
     <property name="SearchEverywhereHistory" value="ret" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="options.lastSelected" value="Configurable.PHP" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -182,7 +184,8 @@
       <option name="presentableId" value="Default" />
       <updated>1581431190423</updated>
       <workItem from="1581795181535" duration="632000" />
-      <workItem from="1581838122928" duration="1126000" />
+      <workItem from="1581838122928" duration="3891000" />
+      <workItem from="1581842811048" duration="804000" />
     </task>
     <servers />
   </component>
@@ -195,10 +198,14 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1581839630768">
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog" timestamp="1581843662518">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1581839630768" />
+    <state x="92" y="92" width="1182" height="544" maximized="true" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1581843662518" />
+    <state x="510" y="352" key="NewPhpFileDialog" timestamp="1581843405186">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="510" y="352" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1581843405186" />
     <state x="186" y="0" key="SettingsEditor" timestamp="1581795520644">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -211,5 +218,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="0" width="585" height="728" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1581795620132" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581843514145">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581843514145" />
   </component>
 </project>

@@ -1,117 +1,81 @@
-<div>
-    {{ Form::open(['url' => route('transfer.import_data_from_xls'), 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
-
-    {{ Form::file('file_to_upload') }}
-
-    {{ Form::radio('checked_table', 1) }} {{ trans('translations.check_clients_table') }}
-
-    {{ Form::radio('checked_table', 2) }} {{ trans('translations.check_products_table') }}
-
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-    @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-    @endif
-
-    {{ Form::submit(trans('translations.import_submit_btn'), ['class' => 'btn btn-primary', 'type'=>'submit']) }}
-
-    {{ Form::close() }}
-</div>
-
-<div class="card">
-    <div class="card-body">
-        {{ Form::text('', '', ['class' => 'form-control', 'id' => 'filter-val']) }}
-        {{ Form::select('', $filterOptions, '', ['class' => 'form-control', 'id' => 'filter-key']) }}
-        {{ Form::button(trans('translations.filter_btn'), ['class' => 'btn btn-info', 'id' => 'btn-apply-filter']) }}
-    </div>
-</div>
-
-<div>
-    {{ Html::link(route('transfer.export_data_to_xls'), trans('translations.email_report'), ['id' => 'link-email-report']) }}
-</div>
-
-<table class="table table-bordered" id="products-table">
-    <thead>
-    <tr>
-        <th>{{ trans('translations.table.heading.client') }}</th>
-        <th>{{ trans('translations.table.heading.product') }}</th>
-        <th>{{ trans('translations.table.heading.total') }}</th>
-        <th>{{ trans('translations.table.heading.date') }}</th>
-        <th>{{ trans('translations.table.heading.actions') }}</th>
-    </tr>
-    </thead>
-</table>
-
-<div id="modal-product-destroy" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">{{ trans('translations.destroy_product.modal_title') }}</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="container">
+    <div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-            <div class="modal-body">
-                {{ trans('translations.destroy_product.confirmation') }}
+        @endif
+
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btn-destroy-product">{{ trans('translations.destroy_product.modal_save') }}</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('translations.destroy_product.modal_close') }}</button>
+        @endif
+    </div>
+    <div class="card">
+        <div class="card-body">
+            {{ Form::open(['url' => route('transfer.import_data_from_xls'), 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
+            <div class="row">
+                <div class="col-md-5">
+                    {{ Form::file('file_to_upload') }}
+                </div>
+                <div class="col-md-5">
+                    {{ Form::radio('checked_table', 1) }} {{ trans('translations.check_clients_table') }}
+
+                    {{ Form::radio('checked_table', 2) }} {{ trans('translations.check_products_table') }}
+                </div>
+                <div class="col-md-2">
+                    {{ Form::submit(trans('translations.import_submit_btn'), ['class' => 'btn btn-primary', 'type'=>'submit']) }}
+                </div>
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    {{ Form::text('', '', ['class' => 'form-control', 'id' => 'filter-val']) }}
+                </div>
+                <div class="col-md-5">
+                    {{ Form::select('', $filterOptions, '', ['class' => 'form-control', 'id' => 'filter-key']) }}
+                </div>
+                <div class="col-md-2">
+                    {{ Form::button(trans('translations.filter_btn'), ['class' => 'btn btn-info', 'id' => 'btn-apply-filter']) }}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="modal-product-edit" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">{{ trans('translations.edit_product.modal_title') }}</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{ Form::open(['url' => '#', 'id' => 'form-update-product', 'class' => 'form-horizontal', 'method'=>'POST', 'enctype'=>'multipart/form-data']) }}
-                <div class="form-group">
-                    <label>
-                        {{ trans('translations.edit_product.client') }}
-                    </label>
-                    {{ Form::select('client_id', $clients, '', ['class' => 'form-control', 'id' => 'edit-product-client']) }}
-                </div>
-                <div class="form-group">
-                    <label>
-                        {{ trans('translations.edit_product.name') }}
-                    </label>
-                    {{ Form::text('name', '', ['class' => 'form-control', 'id' => 'edit-product-name'])}}
-                </div>
-                <div class="form-group">
-                    <label>
-                        {{ trans('translations.edit_product.total') }}
-                    </label>
-                    {{ Form::text('total', '', ['class' => 'form-control', 'id' => 'edit-product-total'])}}
-                </div>
-                {{ Form::close() }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-update-product">{{ trans('translations.edit_product.modal_save') }}</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans('translations.edit_product.modal_close') }}</button>
-            </div>
-        </div>
+    <div>
+        {{ Html::link(route('transfer.export_data_to_xls'), trans('translations.email_report'), ['id' => 'link-email-report']) }}
     </div>
-</div>
 
-<canvas id="canvas"></canvas>
+    <div>
+        <table class="table table-bordered" id="products-table">
+            <thead>
+            <tr>
+                <th>{{ trans('translations.table.heading.client') }}</th>
+                <th>{{ trans('translations.table.heading.product') }}</th>
+                <th>{{ trans('translations.table.heading.total') }}</th>
+                <th>{{ trans('translations.table.heading.date') }}</th>
+                <th>{{ trans('translations.table.heading.actions') }}</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    @include('modals.product_edit');
+
+    @include('modals.delete_product');
+
+    <canvas id="canvas"></canvas>
+</div>
 
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -311,3 +275,29 @@
         })
     })
 </script>
+
+<style>
+    table#products-table {
+        border-radius: .4em;
+        overflow: hidden;
+    }
+
+    table#products-table  th, table#products-table  td {
+        /*border-top: 1px solid #ddd;*/
+        /*border-bottom: 1px solid #ddd;*/
+        /*border-color: #46637f;*/
+        border: none;
+    }
+
+    table#products-table tbody tr, thead tr {
+        background-color: #34495e;
+    }
+
+    table#products-table thead tr {
+        color: #dd5;
+    }
+
+    table#products-table tbody tr {
+        color: #fff;
+    }
+</style>

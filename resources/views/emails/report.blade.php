@@ -1,1 +1,1 @@
-{{ trans('translations.report.hello') }}
+{{ trans('translations.mail.report.hello') }}

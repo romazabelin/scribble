@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="205b28e7-d796-42a7-ad17-0e6891af3833" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/report.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Services/MailService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/MailService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/translations.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/translations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/report.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,12 +124,6 @@
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
-  </component>
   <component name="ProjectId" id="1XtIGRuINsNWEOlotq5gr3Uq1Gn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -169,7 +163,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581858879369</updated>
       <workItem from="1581858925364" duration="556000" />
-      <workItem from="1581876371050" duration="3063000" />
+      <workItem from="1581876371050" duration="4236000" />
     </task>
     <servers />
   </component>
@@ -198,9 +192,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="512" y="99" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1366.728@0.0.1366.728" timestamp="1581858747025" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581879486776">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581880886881">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581879486776" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581880886881" />
   </component>
 </project>

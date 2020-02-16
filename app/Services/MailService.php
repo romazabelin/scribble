@@ -20,7 +20,7 @@ class MailService
             //$m->from('Roma');
             $m->to($emails)
                 ->subject(Lang::get('translations.mail.report.subject'))
-                ->attachFromStorage($pathToFile);
+                ->attach($pathToFile);
         });
     }
 }

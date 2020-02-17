@@ -76,9 +76,9 @@ class ProductRepository
     public static function addAllStatements(string $value, string $date, $query)
     {
         return $query->where(function($q) use ($value, $date) {
-            $q->orWhere('total', $value);
-            $q->orWhere('date', 'like', '%' . $date . '%');
-            $q->orWhere('name', 'like', '%' . $value . '%');
+            $q->orWhere('products.total', $value);
+            $q->orWhere('products.date', 'like', '%' . $date . '%');
+            $q->orWhere('products.name', 'like', '%' . $value . '%');
             $q->orWhereHas('client', function($q) use ($value) {
                 $q->where('name', 'like', '%' . $value . '%');
             });
@@ -91,7 +91,7 @@ class ProductRepository
      */
     public static function addTotalStatement(string $total, $query)
     {
-        return $query->where('total', $total);
+        return $query->where('products.total', $total);
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductRepository
      */
     public static function addDateStatement(string $date, $query)
     {
-        return $query->where('date', 'like', '%' . $date . '%');
+        return $query->where('products.date', 'like', '%' . $date . '%');
     }
 
     /**
@@ -111,7 +111,7 @@ class ProductRepository
      */
     public static function addNameStatement(string $name, $query)
     {
-        return $query->where('name', 'like', '%' . $name . '%');
+        return $query->where('products.name', 'like', '%' . $name . '%');
     }
 
     /**

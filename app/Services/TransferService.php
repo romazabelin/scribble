@@ -72,7 +72,7 @@ class TransferService
             Excel::store(new SkeletonExport($data, $headData), $file);
 
             //send report to users
-            MailService::sendReport(['alexander@webscribble.com', 'nick@webscrible.com'], storage_path() . '/app' .$file);
+            MailService::sendReport(['aleksandr.datsko@asdat.net'], storage_path() . '/app' .$file);
 
             $msg = Lang::get('translations.export.msg_success');
         }

@@ -66,7 +66,8 @@ return [
         'product_name' => 'Product',
         'total'        => 'Total',
         'date'         => 'Date',
-        'select'       => 'Select'
+        'select'       => 'Select',
+        'description'   => 'Date  in format dd.mm.yyyy(dd-mm-yyyy). No mask for now'
     ],
 
     'mail' => [

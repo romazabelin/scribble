@@ -41,10 +41,10 @@
     <div class="card mb-5">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-5">
-                    {{ Form::text('', '', ['class' => 'form-control', 'id' => 'filter-val']) }}
+                <div class="col-md-7">
+                    {{ Form::text('', '', ['placeholder' => Lang::get("translations.filter.description"), 'class' => 'form-control', 'id' => 'filter-val']) }}
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-3">
                     {{ Form::select('', $filterOptions, '', ['class' => 'form-control', 'id' => 'filter-key']) }}
                 </div>
                 <div class="col-md-2">

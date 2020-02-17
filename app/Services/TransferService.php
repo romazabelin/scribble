@@ -20,6 +20,7 @@ class TransferService
      */
     public static function importData(array $input)
     {
+        //import data from -xls; store on the the server -> then read it
         $file     = $input['file_to_upload'];
         $fileName = time() . '.' . $file->getClientOriginalExtension();
 
@@ -50,6 +51,7 @@ class TransferService
     {
         $filterService = new FilterService();
         $query         = ProductRepository::getQuery();
+        //set filter queries
         $query         = $filterService->addFilterStatements($filterKey, $filterVal, $query);
         $data          = ProductRepository::executeQueryForExport($query);
 

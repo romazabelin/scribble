@@ -15,7 +15,7 @@ use Yajra\DataTables\DataTables;
 class TableService
 {
     /**
-     * Get products list for dataable
+     * Init datatable listings
      *
      * @param int|null $filterKey
      * @param string|null $filterValue
